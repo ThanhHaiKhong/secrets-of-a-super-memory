@@ -134,6 +134,7 @@
 
   .topbar-links {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 14px;
     font-size: 0.82rem;
@@ -527,6 +528,7 @@
         <a href="chapter-1-self-deception.html"><span class="vi-only">Cụm 1</span><span class="en-only" lang="en">Arc 1</span></a>
         <a href="chapter-9-papers-tasks-order.html"><span class="vi-only">Cụm 2</span><span class="en-only" lang="en">Arc 2</span></a>
         <a href="chapter-17-have-we-met.html"><span class="vi-only">Cụm 3</span><span class="en-only" lang="en">Arc 3</span></a>
+        <a href="learning-evidence.html"><span class="vi-only">🔬 Bằng chứng</span><span class="en-only" lang="en">🔬 Evidence</span></a>
       </nav>
       <div class="view-controls" role="group" aria-label="Chế độ xem / View">
         <button type="button" data-view-option="map" aria-pressed="true"><span class="vi-only">🗺️ Bản đồ</span><span class="en-only" lang="en">🗺️ Map</span></button>
@@ -556,7 +558,7 @@
       <div id="detail-summary"></div>
     </div>
     <div class="detail-foot" id="detail-foot">
-      <a class="detail-link" id="detail-link" href="#"><span class="vi-only">Đọc đầy đủ trong chương →</span><span class="en-only" lang="en">Read the full chapter →</span></a>
+      <a class="detail-link" id="detail-link" href="index.html"><span class="vi-only">Đọc đầy đủ trong chương →</span><span class="en-only" lang="en">Read the full chapter →</span></a>
     </div>
   </aside>
 
@@ -567,6 +569,7 @@
         <h1 class="palace-title"><span class="vi-only">Cung điện ký ức của cả cuốn sách</span><span class="en-only" lang="en">A memory palace for the whole book</span></h1>
         <p class="palace-lede"><span class="vi-only">Đây là bài tập tự soi: dùng <em>chính</em> kỹ thuật Roman Room ở <a href="chapter-8-the-roman-room.html">Chương 8</a> để nhớ 23 chương. Một ngôi nhà ba phòng, mỗi phòng là một Cụm, mỗi chương là một <strong>điểm neo</strong> đặt theo lối đi bất biến — “đi để nhớ”. Không gian giữ thứ tự, hình ảnh giữ nội dung.</span><span class="en-only" lang="en">A self-referential exercise: use the Roman Room technique from <a href="chapter-8-the-roman-room.html">Chapter 8</a> to memorise all 23 chapters. One house of three rooms — each room an arc, each chapter a <strong>locus</strong> along a fixed route — “walk to recall.” The space keeps the order, the images keep the content.</span></p>
         <p class="palace-note"><span class="vi-only">Hình ảnh tại mỗi điểm neo là <strong>minh họa mnemonic do bản đồ đề xuất</strong> để học, không phải ví dụ nguyên văn trong sách. Nguyên tắc từng chương và kỹ thuật Roman Room trích từ nội dung các chương (đặc biệt Chương 8).</span><span class="en-only" lang="en">The image at each locus is a <strong>companion-added mnemonic illustration</strong> for study, not a verbatim example from the book. Each chapter's principle and the Roman Room method are drawn from the chapters themselves (especially Chapter 8).</span></p>
+        <p class="palace-note"><span class="vi-only">Xem <a href="learning-evidence.html"><strong>phụ lục bằng chứng học tập hiện đại</strong></a> để đối chiếu nghiên cứu về retrieval practice, spacing và Roman Room, cùng giới hạn và gợi ý ứng dụng. Đây là tài liệu ngoài sách, không phải lời của Katz.</span><span class="en-only" lang="en">Read the <a href="learning-evidence.html"><strong>modern learning evidence supplement</strong></a> for research on retrieval practice, spacing and Roman Room, its limits and practical suggestions. This is external research, not Katz's claims.</span></p>
       </header>
 
       <section class="palace-story">
@@ -1018,7 +1021,18 @@
       summary: "Dùng hình ảnh, loci và ôn tập ngắt quãng để biến bài vở khô khan thành thứ bám lâu tới lúc thi.",
       summaryEn: "Use imagery, loci and spaced review to make dry material stick through to the exam.",
       href: CH14
-    }),
+    }, [
+      n("🔬 Bằng chứng học tập hiện đại", {
+        term: "Supplement · Evidence-Based Learning",
+        part: 2,
+        topicEn: "🔬 Modern Learning Evidence",
+        summary: "Phụ lục ngoài sách về tự truy hồi, ôn cách quãng, luyện xen kẽ, tự giải thích và Roman Room: nguồn nghiên cứu trực tiếp, giới hạn bằng chứng và gợi ý thực hành. Phân biệt nhớ, hiểu, chuyển giao và kỹ năng.",
+        summaryEn: "An external supplement on retrieval, spacing, interleaving, self-explanation and Roman Room: direct research sources, evidence limits and practical suggestions. It distinguishes recall, understanding, transfer and skills.",
+        href: "learning-evidence.html",
+        linkLabel: "Đọc tài liệu bổ sung →",
+        linkLabelEn: "Read the research supplement →"
+      })
+    ]),
     n("🎤 Nhớ để thuyết trình", {
       term: "Chapter 15 · Memory for Presentations",
       part: 2,
@@ -1313,6 +1327,8 @@
     elSummary.appendChild(p);
     if (detail.href) {
       elLink.href = detail.href;
+      elLink.querySelector(".vi-only").textContent = detail.linkLabel || "Đọc đầy đủ trong chương →";
+      elLink.querySelector(".en-only").textContent = detail.linkLabelEn || "Read the full chapter →";
       elFoot.hidden = false;
     } else {
       elFoot.hidden = true;

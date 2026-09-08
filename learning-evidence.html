@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="vi" data-reading-mode="deep">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Phụ lục bằng chứng khoa học về học và ghi nhớ: tự truy hồi, ôn cách quãng, luyện xen kẽ, tự giải thích và giới hạn của Roman Room. Có nguồn nghiên cứu trực tiếp, song ngữ VI/EN.">
+<title>Bằng chứng học tập hiện đại</title>
+<link rel="icon" href="data:,">
+<script>
+(function () {
+  let lang = "vi";
+  let mode = "deep";
+  try {
+    if (localStorage.getItem("memory-lang") === "en") lang = "en";
+    const savedMode = localStorage.getItem("memory-reading-mode");
+    if (["easy", "quick", "deep"].includes(savedMode)) mode = savedMode;
+  } catch (_) {}
+  document.documentElement.dataset.lang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.readingMode = mode;
+})();
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Noto+Serif:wght@600;700&display=swap">
+<style>
+  :root {
+    --bg: #eef4ec;
+    --surface: #f5faf3;
+    --surface-strong: #ffffff;
+    --ink: #17281c;
+    --muted: #566b56;
+    --line: #cfe3c9;
+    --teal: #3f7d52;
+    --teal-soft: #d9ecdb;
+    --blue: #2f7d78;
+    --blue-soft: #d3e9e6;
+    --amber: #b0812b;
+    --amber-soft: #f0e5cb;
+    --display: "Noto Serif", Georgia, serif;
+    --body: "Be Vietnam Pro", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10231a;
+      --surface: #163020;
+      --surface-strong: #1d3b28;
+      --ink: #e9f5ea;
+      --muted: #9fc3a3;
+      --line: #294a35;
+      --teal: #6fce86;
+      --teal-soft: #163a24;
+      --blue: #63c3bc;
+      --blue-soft: #123833;
+      --amber: #e0b45f;
+      --amber-soft: #3a2f18;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10231a;
+    --surface: #163020;
+    --surface-strong: #1d3b28;
+    --ink: #e9f5ea;
+    --muted: #9fc3a3;
+    --line: #294a35;
+    --teal: #6fce86;
+    --teal-soft: #163a24;
+    --blue: #63c3bc;
+    --blue-soft: #123833;
+    --amber: #e0b45f;
+    --amber-soft: #3a2f18;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.75 var(--body); }
+  a { color: var(--teal); overflow-wrap: anywhere; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--amber); outline-offset: 4px; }
+  .page { width: min(1040px, calc(100% - 32px)); margin: auto; padding: 24px 0 64px; }
+  .topbar, .controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .topbar { justify-content: space-between; margin-bottom: 28px; }
+  .topbar a { font-size: .84rem; font-weight: 600; }
+  .control-group { display: inline-flex; flex-wrap: wrap; gap: 3px; padding: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; }
+  button { min-height: 44px; padding: 8px 12px; border: 0; border-radius: 18px; background: transparent; color: var(--muted); font: 600 .78rem var(--body); cursor: pointer; }
+  button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+  .hero { padding: clamp(24px, 5vw, 54px); background: var(--surface); border: 1px solid var(--line); border-radius: 26px 26px 8px 26px; }
+  .eyebrow { color: var(--teal); font: 500 .74rem var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+  h1, h2, h3 { font-family: var(--display); line-height: 1.2; }
+  h1 { margin: 14px 0 18px; font-size: clamp(2.1rem, 5vw, 4rem); letter-spacing: -.035em; }
+  h2 { margin: 0 0 16px; font-size: clamp(1.45rem, 3vw, 2rem); }
+  h3 { margin: 0 0 12px; font-size: 1.16rem; }
+  p { margin: 10px 0; }
+  .lede { max-width: 72ch; font-size: 1.04rem; }
+  .scope, .detail { color: var(--muted); font-size: .87rem; }
+  .section { margin-top: 40px; scroll-margin-top: 16px; }
+  .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .card { min-width: 0; padding: 23px; border: 1px solid var(--line); border-radius: 18px; background: var(--surface-strong); }
+  .card p { font-size: .91rem; }
+  .category { margin: 0 0 14px; color: var(--teal); font: 500 .72rem var(--mono); }
+  .practice { padding-top: 12px; border-top: 1px solid var(--line); }
+  .cite { white-space: nowrap; font-size: .78em; vertical-align: super; }
+  .cite a { text-decoration: none; padding: 2px; }
+  .callout { padding: 20px 24px; border-left: 4px solid var(--blue); border-radius: 4px 18px 18px 4px; background: var(--blue-soft); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 16px; background: var(--surface-strong); }
+  table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: .85rem; }
+  th, td { padding: 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { background: var(--teal-soft); }
+  tr:last-child td { border-bottom: 0; }
+  .ref-list { padding-left: 1.4em; }
+  .ref-list li { padding: 12px 6px; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+  .ref-list li:target { background: var(--teal-soft); }
+  blockquote { margin: 10px 0; padding-left: 14px; border-left: 2px solid var(--line); color: var(--muted); font-size: .86rem; }
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); font-size: .82rem; }
+  [hidden] { display: none !important; }
+  html:not([data-lang="en"]) .en-only { display: none !important; }
+  html[data-lang="en"] .vi-only { display: none !important; }
+  html:not([data-reading-mode="easy"]) .easy-only { display: none !important; }
+  html[data-reading-mode="easy"] .standard-copy { display: none !important; }
+  html:not([data-reading-mode="deep"]) .deep-only { display: none !important; }
+
+  /* SECTION-RAIL:START — bilingual section navigation, built from headings below */
+  .section-rail { margin: 22px 0 0; }
+  .section-rail__list { display: flex; flex-wrap: wrap; gap: 8px 18px; list-style: none; padding: 0; margin: 0; }
+  .section-rail a { font-size: .8rem; text-decoration: none; }
+  .section-rail a[aria-current="location"] { font-weight: 700; text-decoration: underline; }
+  /* SECTION-RAIL:END */
+
+  @media (max-width: 700px) {
+    .cards { grid-template-columns: 1fr; }
+    .topbar { align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar">
+    <a href="mind-map.html"><span class="vi-only">← Mind map toàn cuốn</span><span class="en-only" lang="en">← Whole-book mind map</span></a>
+    <div class="controls">
+      <div class="control-group reading-controls" role="group" aria-label="Chế độ đọc / Reading mode">
+        <button type="button" data-mode="easy"><span class="vi-only">Dễ hiểu</span><span class="en-only" lang="en">Simple</span></button>
+        <button type="button" data-mode="quick"><span class="vi-only">Tóm tắt</span><span class="en-only" lang="en">Summary</span></button>
+        <button type="button" data-mode="deep"><span class="vi-only">Đầy đủ</span><span class="en-only" lang="en">Full</span></button>
+      </div>
+      <div class="control-group lang-controls" role="group" aria-label="Ngôn ngữ / Language">
+        <button type="button" data-lang-option="vi">VI</button>
+        <button type="button" data-lang-option="en">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <header class="hero">
+    <div class="eyebrow"><span class="vi-only">Phụ lục nghiên cứu · 08/09/2026</span><span class="en-only" lang="en">Research supplement · 8 September 2026</span></div>
+    <h1><span class="vi-only">Bằng chứng học tập hiện đại</span><span class="en-only" lang="en">Modern learning evidence</span></h1>
+    <p class="lede"><span class="vi-only">Tự truy hồi và ôn cách quãng có nền bằng chứng rộng trong học tập, gồm cả nghiên cứu lớp học.</span><span class="en-only" lang="en">Retrieval practice and spacing have broad support in learning research, including classroom studies.</span> <span class="cite"><a href="#ref-1">[1]</a><a href="#ref-2">[2]</a></span></p>
+    <p class="scope"><span class="vi-only">Tài liệu bổ sung ngoài sách của Eran Katz, không phải lời tác giả hoặc một systematic review mới. Lưu kết quả và đường dẫn nghiên cứu đã đối chiếu trong phiên nghiên cứu; nhãn “Đề xuất” là suy luận ứng dụng, không phải tổ hợp tối ưu đã được chứng minh.</span><span class="en-only" lang="en">An external supplement to Eran Katz's book, not the author's claims or a new systematic review. It preserves findings and source links checked during the research session. “Suggestion” labels practical inferences, not a proven optimal package.</span></p>
+  </header>
+  <nav class="section-rail" aria-label="Mục lục tài liệu / Document contents"></nav>
+
+  <section class="section" id="methods">
+    <h2><span class="vi-only">01 · Các phương pháp nên ưu tiên</span><span class="en-only" lang="en">01 · Methods to prioritize</span></h2>
+    <div class="cards">
+      <article class="card" id="retrieval">
+        <p class="category"><span class="vi-only">Nền tảng · Bằng chứng lớp học</span><span class="en-only" lang="en">Foundation · Classroom evidence</span></p>
+        <h3>Retrieval practice</h3>
+        <p class="vi-only"><span class="standard-copy">Tự lấy kiến thức ra từ trí nhớ giúp cải thiện thành tích học tập trong tổng hợp nghiên cứu lớp học.</span><span class="easy-only">Thử nhớ trước khi xem đáp án: đây là một cách học có bằng chứng, không chỉ là cách chấm điểm.</span> <span class="cite"><a href="#ref-1">[1]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Retrieving knowledge improves academic achievement in a synthesis of classroom studies.</span><span class="easy-only">Try recalling before seeing the answer: testing can teach, not just assess.</span> <span class="cite"><a href="#ref-1">[1]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Yang và cộng sự (2021): 222 nghiên cứu độc lập, 48.478 người học, hiệu ứng tổng thể g = 0,499. Mức lợi ích thay đổi theo đối chứng, phản hồi và thiết kế.</span><span class="en-only" lang="en">Yang et al. (2021): 222 independent studies, 48,478 learners, overall g = 0.499. Benefits vary with controls, feedback and design.</span> <span class="cite"><a href="#ref-1">[1]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> đóng tài liệu → viết, nói hoặc giải → đối chiếu → sửa và thử lại. Không chỉ đoán mà không kiểm tra.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> close the material → write, speak or solve → compare → correct and retry. Do not merely guess without checking.</span></p>
+      </article>
+      <article class="card" id="spacing">
+        <p class="category"><span class="vi-only">Nền tảng · Lưu giữ kiến thức</span><span class="en-only" lang="en">Foundation · Retention</span></p>
+        <h3>Spaced practice</h3>
+        <p class="vi-only"><span class="standard-copy">Quay lại cùng nội dung qua những buổi cách nhau có lợi hơn học dồn trong phân tích gộp nghiên cứu lớp học.</span><span class="easy-only">Học rồi quay lại ôn vào buổi khác, thay vì dồn mọi lần ôn vào một buổi.</span> <span class="cite"><a href="#ref-2">[2]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Revisiting content across separated sessions outperforms massed practice in a classroom meta-analysis.</span><span class="easy-only">Learn, then return in another session instead of doing all repetitions at once.</span> <span class="cite"><a href="#ref-2">[2]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Mawson &amp; Kang (2025): 22 báo cáo, 31 effect sizes, hơn 3.000 người học; d = 0,54, CI 95% [0,31; 0,77]. Đây không phải “tăng 54% điểm”.</span><span class="en-only" lang="en">Mawson &amp; Kang (2025): 22 reports, 31 effect sizes, over 3,000 learners; d = 0.54, 95% CI [0.31, 0.77]. This is not a “54% score increase”.</span> <span class="cite"><a href="#ref-2">[2]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> đặt lịch quay lại nội dung cũ. Học mỗi chương một lần vào một ngày khác nhau chưa phải ôn cách quãng chương đó.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> schedule returns to old content. Studying each chapter once on different days is not spaced review of that chapter.</span></p>
+      </article>
+      <article class="card" id="spaced-retrieval">
+        <p class="category"><span class="vi-only">Kết hợp hai nền tảng</span><span class="en-only" lang="en">Combining the foundations</span></p>
+        <h3>Spaced retrieval</h3>
+        <p class="vi-only"><span class="standard-copy">Phân bố các lần truy hồi qua thời gian cải thiện lưu giữ so với truy hồi dồn; lịch giãn dần không có ưu thế tổng thể có ý nghĩa so với cách đều.</span><span class="easy-only">Tự kiểm tra lại vào nhiều buổi khác nhau. Không cần tin một chuỗi ngày ôn “thần kỳ”.</span> <span class="cite"><a href="#ref-3">[3]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Spacing retrieval improves retention over massed retrieval; expanding schedules have no significant overall advantage over uniform schedules.</span><span class="easy-only">Quiz yourself again in later sessions. There is no need to believe in a “magic” sequence of review days.</span> <span class="cite"><a href="#ref-3">[3]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Latimier và cộng sự: 29 nghiên cứu; g = 0,74 cho spaced so với massed retrieval; g = 0,034 cho expanding so với uniform. Hai so sánh trả lời hai câu hỏi khác nhau.</span><span class="en-only" lang="en">Latimier et al.: 29 studies; g = 0.74 for spaced versus massed retrieval, and g = 0.034 for expanding versus uniform schedules. These comparisons answer different questions.</span> <span class="cite"><a href="#ref-3">[3]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> thử ôn hôm sau, vài ngày sau, rồi giãn tiếp theo lỗi nhớ và thời hạn cần giữ kiến thức. Đây là lịch minh họa.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> try the next day, a few days later, then adjust gaps to errors and your retention goal. This is an illustrative schedule.</span></p>
+      </article>
+      <article class="card" id="interleaving">
+        <p class="category"><span class="vi-only">Có điều kiện · Phân biệt dạng bài</span><span class="en-only" lang="en">Conditional · Discrimination</span></p>
+        <h3>Interleaving</h3>
+        <p class="vi-only"><span class="standard-copy">Luyện xen kẽ có thể hỗ trợ học phân loại, nhưng hiệu quả thay đổi theo tài liệu; không luôn hơn luyện theo nhóm.</span><span class="easy-only">Trộn các dạng bài để tập chọn cách giải. Không phải cứ đổi môn liên tục là học tốt hơn.</span> <span class="cite"><a href="#ref-4">[4]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Interleaving can support category learning, but benefits depend on the material; it does not always outperform blocking.</span><span class="easy-only">Mix problem types to practise choosing a method. Constantly switching subjects is not automatically better.</span> <span class="cite"><a href="#ref-4">[4]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Brunmair &amp; Richter (2019): 59 nghiên cứu; lợi ích tổng thể g = 0,42, nhưng các nghiên cứu dựa trên từ nghiêng về blocking. Không áp cùng kết luận cho mọi môn.</span><span class="en-only" lang="en">Brunmair &amp; Richter (2019): 59 studies; overall g = 0.42, but word-based studies favored blocking. Do not apply one verdict to every subject.</span> <span class="cite"><a href="#ref-4">[4]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> sau khi hiểu ví dụ cơ bản, trộn các dạng liên quan và giải thích vì sao chọn phương pháp này thay vì phương pháp kia.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> after understanding basic examples, mix related types and explain why you chose one method over another.</span></p>
+      </article>
+      <article class="card" id="self-explanation">
+        <p class="category"><span class="vi-only">Hiểu quan hệ · Cần kiểm tra độ đúng</span><span class="en-only" lang="en">Relationships · Check accuracy</span></p>
+        <h3>Self-explanation</h3>
+        <p class="vi-only"><span class="standard-copy">Gợi ý người học tự giải thích quan hệ và nguyên nhân có lợi qua nhiều điều kiện học trong phân tích gộp.</span><span class="easy-only">Không chỉ nói lại câu trong sách: hãy thử giải thích “vì sao?” và “dựa vào điều gì?”.</span> <span class="cite"><a href="#ref-5">[5]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Prompting learners to explain causal and conceptual relationships benefits learning across instructional conditions in a meta-analysis.</span><span class="easy-only">Go beyond repeating the book: try explaining “why?” and “what does this depend on?”.</span> <span class="cite"><a href="#ref-5">[5]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Bisra và cộng sự (2018): 69 effect sizes từ 64 báo cáo; g = 0,55. Kết quả về gợi ý tự giải thích không chứng minh mọi lời giải thích tự phát đều đúng hoặc hữu ích.</span><span class="en-only" lang="en">Bisra et al. (2018): 69 effect sizes from 64 reports; g = 0.55. Findings about prompts do not establish that every spontaneous explanation is accurate or useful.</span> <span class="cite"><a href="#ref-5">[5]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> hỏi “bước này hợp lệ vì sao?”, tìm phản ví dụ, rồi kiểm tra bằng tài liệu hoặc phản hồi.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> ask why a step is valid, find a counterexample, then check with sources or feedback.</span></p>
+      </article>
+      <article class="card" id="representations">
+        <p class="category"><span class="vi-only">Biểu diễn nội dung · Không chỉ trang trí</span><span class="en-only" lang="en">Representing content · Not decoration</span></p>
+        <h3><span class="vi-only">Lời, hình và ví dụ</span><span class="en-only" lang="en">Words, visuals and examples</span></h3>
+        <p class="vi-only"><span class="standard-copy">Dual coding và ví dụ cụ thể được triển khai trong các khóa STEM được tổng quan năm 2026, cùng truy hồi, spacing, interleaving và elaboration.</span><span class="easy-only">Sơ đồ và ví dụ là những cách giúp trình bày bài học đã được dùng trong các nghiên cứu STEM.</span> <span class="cite"><a href="#ref-6">[6]</a></span></p>
+        <p class="en-only" lang="en"><span class="standard-copy">Dual coding and concrete examples appear in STEM courses reviewed in 2026 alongside retrieval, spacing, interleaving and elaboration.</span><span class="easy-only">Diagrams and examples are ways of presenting content used in the reviewed STEM studies.</span> <span class="cite"><a href="#ref-6">[6]</a></span></p>
+        <p class="detail deep-only"><span class="vi-only">Tổng quan gồm 65 bài, nêu hạn chế phương pháp và thiếu dữ liệu dài hạn. Đây không phải bằng chứng mọi loại hình ảnh hoặc mọi cách kết hợp sáu chiến lược đều hiệu quả ngang nhau.</span><span class="en-only" lang="en">The review covers 65 articles and notes methodological limitations and missing longitudinal data. It does not show that all visuals or combinations of six strategies work equally well.</span> <span class="cite"><a href="#ref-6">[6]</a></span></p>
+        <p class="practice"><span class="vi-only"><strong>Đề xuất:</strong> vẽ quan hệ thật của nội dung, đối chiếu nhiều ví dụ, rồi tự dựng lại sơ đồ khi không nhìn mẫu.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> draw meaningful relationships, compare examples, then reconstruct the diagram without the model.</span></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="limits">
+    <h2><span class="vi-only">02 · Đối chứng và giới hạn</span><span class="en-only" lang="en">02 · Comparators and limits</span></h2>
+    <p><span class="vi-only">Một phân tích gộp năm 2025 so sánh truy hồi với các hoạt động xử lý ý nghĩa tích cực cho thấy lợi thế trung bình nhỏ hơn so với ấn tượng từ các đối chứng chỉ đọc lại; phản hồi sửa sai là yếu tố quan trọng.</span><span class="en-only" lang="en">A 2025 meta-analysis comparing retrieval with active elaborative learning found a smaller average advantage than comparisons with rereading might suggest; corrective feedback was important.</span> <span class="cite"><a href="#ref-7">[7]</a></span></p>
+    <p class="deep-only detail"><span class="vi-only">44 nghiên cứu, 142 so sánh: lợi thế tổng thể của truy hồi g = 0,14. Không dùng kết quả trung bình này để khẳng định truy hồi luôn thắng mọi cách học tích cực.</span><span class="en-only" lang="en">44 studies, 142 comparisons: overall retrieval advantage g = 0.14. Do not interpret this average as retrieval always beating every active learning activity.</span> <span class="cite"><a href="#ref-7">[7]</a></span></p>
+    <div class="callout"><p><span class="vi-only"><strong>Đề xuất đánh giá:</strong> đo nhớ đúng sau một khoảng trì hoãn, khả năng giải câu hỏi mới và tổng thời gian học. Không chỉ đo cảm giác quen, số thẻ đã xem hoặc số hình ảnh đã tạo.</span><span class="en-only" lang="en"><strong>Evaluation suggestion:</strong> measure delayed accuracy, performance on new questions and total study time, not just familiarity, cards viewed or images created.</span></p></div>
+  </section>
+
+  <section class="section" id="roman-room">
+    <h2><span class="vi-only">03 · Roman Room đứng ở đâu?</span><span class="en-only" lang="en">03 · Where Roman Room fits</span></h2>
+    <p><span class="vi-only">Tổng quan MoL năm 2025 ghi nhận lợi ích nhớ lại, nổi bật ở nhớ theo thứ tự ngay sau học so với học lặp. Tuy nhiên, chất lượng bằng chứng thấp đến rất thấp và không xác lập hiệu quả cho mọi năng lực chuyên môn.</span><span class="en-only" lang="en">The 2025 MoL review reports recall benefits, particularly immediate serial recall versus rehearsal. Evidence quality is low to very low, and it does not establish effectiveness for every professional skill.</span> <span class="cite"><a href="#ref-8">[8]</a></span></p>
+    <p class="deep-only"><span class="vi-only">Nghiên cứu ngoại ngữ năm 2026: sau ba tuần, cued gender recall là 59,93% so với 39,93%; thời gian học là 24,7 so với 15,8 phút. Can thiệp gộp môi trường 3D, hình ảnh và MoL, không tách được tác dụng riêng, không đo nói lưu loát.</span><span class="en-only" lang="en">A 2026 language study found three-week cued gender recall of 59.93% versus 39.93%, with study time of 24.7 versus 15.8 minutes. Its 3D environment, imagery and MoL bundle does not isolate individual effects or test speaking fluency.</span> <span class="cite"><a href="#ref-9">[9]</a></span></p>
+    <p><span class="vi-only"><strong>Đề xuất:</strong> giữ Roman Room cho các liên kết hoặc thứ tự khó nhớ; tiếp tục tự truy hồi, ôn qua nhiều buổi và luyện đúng nhiệm vụ cần làm. Đây là cách dùng chọn lọc, không phải tổ hợp tối ưu đã được thử nghiệm.</span><span class="en-only" lang="en"><strong>Suggestion:</strong> reserve Roman Room for difficult associations or sequences; keep retrieving, revisiting and practising the target task. This is a selective approach, not a tested optimal package.</span></p>
+    <p><a href="chapter-8-the-roman-room.html"><span class="vi-only">Đọc chương 8 · Roman Room</span><span class="en-only" lang="en">Read Chapter 8 · Roman Room</span></a></p>
+  </section>
+
+  <section class="section" id="application">
+    <h2><span class="vi-only">04 · Áp dụng vào việc học</span><span class="en-only" lang="en">04 · Applying it to study</span></h2>
+    <p class="scope"><span class="vi-only">Các hàng dưới là đề xuất thực hành, không phải kết quả của thử nghiệm đối đầu cho từng môn.</span><span class="en-only" lang="en">The rows below are practical suggestions, not findings from head-to-head trials in each subject.</span></p>
+    <div class="table-wrap"><table>
+      <thead><tr><th><span class="vi-only">Mục tiêu</span><span class="en-only" lang="en">Goal</span></th><th><span class="vi-only">Cách luyện đề xuất</span><span class="en-only" lang="en">Suggested practice</span></th><th><span class="vi-only">Kiểm tra</span><span class="en-only" lang="en">Check</span></th></tr></thead>
+      <tbody>
+        <tr><td><span class="vi-only">Từ vựng, thuật ngữ</span><span class="en-only" lang="en">Vocabulary, terminology</span></td><td><span class="vi-only">Gọi lại hai chiều qua nhiều buổi; dùng mnemonic cho mục hay quên.</span><span class="en-only" lang="en">Retrieve both ways across sessions; use mnemonics for difficult items.</span></td><td><span class="vi-only">Dùng được trong câu hoặc ngữ cảnh mới.</span><span class="en-only" lang="en">Use in a new sentence or context.</span></td></tr>
+        <tr><td><span class="vi-only">Toán, vật lý</span><span class="en-only" lang="en">Mathematics, physics</span></td><td><span class="vi-only">Xem ví dụ → giải thích bước → tự giải → trộn dạng liên quan.</span><span class="en-only" lang="en">Study examples → explain steps → solve → mix related types.</span></td><td><span class="vi-only">Chọn đúng phương pháp khi đổi dữ kiện.</span><span class="en-only" lang="en">Choose the right method with changed inputs.</span></td></tr>
+        <tr><td><span class="vi-only">Sinh học, cơ chế</span><span class="en-only" lang="en">Biology, mechanisms</span></td><td><span class="vi-only">Vẽ sơ đồ từ trí nhớ, đối chiếu rồi giải thích quan hệ.</span><span class="en-only" lang="en">Draw from memory, compare, then explain relationships.</span></td><td><span class="vi-only">Dự đoán khi một thành phần thay đổi.</span><span class="en-only" lang="en">Predict what changes when one component changes.</span></td></tr>
+        <tr><td><span class="vi-only">Lập trình, kỹ năng</span><span class="en-only" lang="en">Programming, skills</span></td><td><span class="vi-only">Tự thực hiện, nhận phản hồi, sửa và luyện lại ở buổi sau.</span><span class="en-only" lang="en">Perform, get feedback, correct and return later.</span></td><td><span class="vi-only">Làm đúng nhiệm vụ mới, không chỉ kể được các bước.</span><span class="en-only" lang="en">Perform a new task, not merely recite steps.</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="section" id="references">
+    <h2><span class="vi-only">05 · Nguồn và phạm vi kiểm chứng</span><span class="en-only" lang="en">05 · Sources and verification scope</span></h2>
+    <p class="scope"><span class="vi-only">Đã đối chiếu toàn văn hoặc abstract như ghi dưới đây. Nhãn về nguồn không phải chứng nhận rằng mọi nghiên cứu đều có chất lượng cao. Các trích nguyên văn tiếng Anh được giữ nguyên trong cả hai ngôn ngữ.</span><span class="en-only" lang="en">Full texts or abstracts were checked as stated below. Source labels do not certify that every study is high quality. English source quotations remain in their original language in both views.</span></p>
+    <ol class="ref-list">
+      <li id="ref-1"><a href="https://doi.org/10.1037/bul0000309" target="_blank" rel="noopener noreferrer">Yang et al. (2021). Testing (quizzing) boosts classroom learning: A systematic and meta-analytic review.</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract · 222 nghiên cứu / 48.478 người học.</span><span class="en-only" lang="en">Meta-analysis · Abstract checked · 222 studies / 48,478 learners.</span></p><blockquote class="deep-only" lang="en">“The current review integrated 48,478 students' data, extracted from 222 independent studies”</blockquote></li>
+      <li id="ref-2"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12189222/" target="_blank" rel="noopener noreferrer">Mawson &amp; Kang (2025). The Distributed Practice Effect on Classroom Learning: A Meta-Analytic Review of Applied Research.</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract và phần liên quan trong toàn văn · DOI: 10.3390/bs15060771.</span><span class="en-only" lang="en">Meta-analysis · Abstract and relevant full-text sections checked · DOI: 10.3390/bs15060771.</span></p><blockquote class="deep-only" lang="en">“A meta-analysis found a moderate effect in favor of distributed over massed practice”</blockquote></li>
+      <li id="ref-3"><a href="https://doi.org/10.1007/s10648-020-09572-8" target="_blank" rel="noopener noreferrer">Latimier, Peyre &amp; Ramus (2021; online 2020). A Meta-Analytic Review of the Benefit of Spacing out Retrieval Practice Episodes on Retention.</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract · So sánh spaced/massed và expanding/uniform là hai phân tích riêng.</span><span class="en-only" lang="en">Meta-analysis · Abstract checked · Spaced/massed and expanding/uniform are separate comparisons.</span></p><blockquote class="deep-only" lang="en">“Results from subset 2 indicated no significant difference between expanding and uniform spacing schedules of retrieval practice”</blockquote></li>
+      <li id="ref-4"><a href="https://doi.org/10.1037/bul0000209" target="_blank" rel="noopener noreferrer">Brunmair &amp; Richter (2019). Similarity matters: A meta-analysis of interleaved learning and its moderators.</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract · Kết quả phụ thuộc loại tài liệu.</span><span class="en-only" lang="en">Meta-analysis · Abstract checked · Findings depend on material type.</span></p><blockquote class="deep-only" lang="en">“An advantage of blocking compared with interleaving was found for studies based on words”</blockquote></li>
+      <li id="ref-5"><a href="https://doi.org/10.1007/s10648-018-9434-x" target="_blank" rel="noopener noreferrer">Bisra et al. (2018). Inducing Self-Explanation: a Meta-Analysis.</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract · Gợi ý tự giải thích trong học hoặc giải bài.</span><span class="en-only" lang="en">Meta-analysis · Abstract checked · Self-explanation prompts during study or problem solving.</span></p><blockquote class="deep-only" lang="en">“Our systematic search of relevant bibliographic databases identified 69 effect sizes (from 64 research reports)”</blockquote></li>
+      <li id="ref-6"><a href="https://doi.org/10.1186/s40594-026-00632-z" target="_blank" rel="noopener noreferrer">STEMing evidence-based study strategies: a systematic review of literature (2026).</a><p class="scope"><span class="vi-only">Tổng quan hệ thống · Đã đọc abstract và phần mở đầu · Công bố online 22/06/2026; 65 bài, có giới hạn phương pháp và dữ liệu dài hạn.</span><span class="en-only" lang="en">Systematic review · Abstract and introduction checked · Online 22 June 2026; 65 articles, with methodological and longitudinal limitations.</span></p><blockquote class="deep-only" lang="en">“Notable gaps in the research include methodological limitations and a lack of longitudinal data.”</blockquote></li>
+      <li id="ref-7"><a href="https://doi.org/10.1007/s10648-025-10076-6" target="_blank" rel="noopener noreferrer">Retrieval Practice Versus Elaborative Encoding: A Systematic and Meta-analytic Review (2025).</a><p class="scope"><span class="vi-only">Phân tích gộp · Đã đọc abstract · Đối chứng tích cực; cần giữ giới hạn về phản hồi.</span><span class="en-only" lang="en">Meta-analysis · Abstract checked · Active comparators; preserve the feedback caveat.</span></p><blockquote class="deep-only" lang="en">“we conducted a systematic and meta-analytic review and found 44 empirical studies that directly compared retrieval practice to such “elaborative” conditions.”</blockquote></li>
+      <li id="ref-8"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12514325/" target="_blank" rel="noopener noreferrer">Ondřej (2025). The method of loci in the context of psychological research: A systematic review and meta-analysis.</a><p class="scope"><span class="vi-only">Tổng quan và phân tích gộp · Đã đọc phương pháp, tổng hợp liên quan và thảo luận · Không suy diễn nhớ danh sách thành năng lực nghề nghiệp.</span><span class="en-only" lang="en">Systematic review and meta-analysis · Methods, relevant syntheses and discussion checked · Do not extrapolate list recall to professional ability.</span></p><blockquote class="deep-only" lang="en">“However, the evidence is rated as low to very low quality, mainly due to the high risk of bias and other limitations.”</blockquote></li>
+      <li id="ref-9"><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13352563/" target="_blank" rel="noopener noreferrer">Hagström &amp; Winman (2026). Playing for Keeps: Long-Term Recall With an Application Using Virtual Reality and the Method of Loci.</a><p class="scope"><span class="vi-only">Thực nghiệm · Đã đối chiếu phương pháp, kết quả và giới hạn · 48 người; môi trường 3D trên máy tính, không cô lập hiệu quả riêng của MoL.</span><span class="en-only" lang="en">Experiment · Methods, results and limitations checked · 48 participants; computer-based 3D environment, not an isolated MoL effect.</span></p><blockquote class="deep-only" lang="en">“Average completion time was longer in the experimental condition (24.7 min) than in the control condition (15.8 min).”</blockquote></li>
+    </ol>
+  </section>
+  <footer>
+    <p><span class="vi-only"><strong>Đề xuất cốt lõi:</strong> hiểu → tự nhớ lại → sửa bằng phản hồi → quay lại ở buổi khác → áp dụng. Dùng cung điện cho phần cần gợi nhớ, không cho toàn bộ việc học.</span><span class="en-only" lang="en"><strong>Core suggestion:</strong> understand → retrieve → correct with feedback → revisit later → apply. Use a palace for retrieval bottlenecks, not all of learning.</span></p>
+    <p><a href="mind-map.html"><span class="vi-only">← Quay lại mind map</span><span class="en-only" lang="en">← Back to the mind map</span></a></p>
+  </footer>
+</main>
+<script>
+(function () {
+  const root = document.documentElement;
+  const modeButtons = document.querySelectorAll(".reading-controls [data-mode]");
+  const langButtons = document.querySelectorAll(".lang-controls [data-lang-option]");
+
+  function setMode(requestedMode) {
+    const mode = ["easy", "quick", "deep"].includes(requestedMode) ? requestedMode : "deep";
+    root.dataset.readingMode = mode;
+    modeButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.mode === mode)));
+    try { localStorage.setItem("memory-reading-mode", mode); } catch (_) {}
+  }
+
+  function setLang(requestedLang) {
+    const lang = requestedLang === "en" ? "en" : "vi";
+    root.dataset.lang = lang;
+    root.lang = lang;
+    langButtons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.langOption === lang)));
+    try { localStorage.setItem("memory-lang", lang); } catch (_) {}
+  }
+
+  modeButtons.forEach(button => button.addEventListener("click", () => setMode(button.dataset.mode)));
+  langButtons.forEach(button => button.addEventListener("click", () => setLang(button.dataset.langOption)));
+  setMode(root.dataset.readingMode);
+  setLang(root.dataset.lang);
+
+  const sections = Array.from(document.querySelectorAll("main .section[id]"));
+  const navigation = document.querySelector(".section-rail");
+  const list = document.createElement("ol");
+  list.className = "section-rail__list";
+  sections.forEach(section => {
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = "#" + section.id;
+    section.querySelector("h2").childNodes.forEach(node => link.appendChild(node.cloneNode(true)));
+    item.appendChild(link);
+    list.appendChild(item);
+  });
+  navigation.appendChild(list);
+
+  function updateActiveSection() {
+    let current = sections[0].id;
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= window.innerHeight * 0.3) current = section.id;
+    });
+    list.querySelectorAll("a").forEach(link => {
+      if (link.hash === "#" + current) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("resize", updateActiveSection, { passive: true });
+  updateActiveSection();
+})();
+</script>
+</body>
+</html>

@@ -65,5 +65,16 @@ Gate: `book-fidelity-auditor` **PASS** (2026-09-04, whole-site after Cụm 3 / f
 6. Haaretz / CNN (Joshua Foer) / Wikipedia Memory sport — memory whiz feats, Baker/baker, Speed Cards record.
 7. Wikipedia / PubMed / ScienceABC — Next-in-line effect / Mnemonic / Method of loci / Major system / Spaced repetition / Absent-mindedness / McCarty 1980 / Baker-baker paradox (per-chapter, technique-level).
 
-## Deferred
-- `mind-map.html` (main-session hand-work) — the only remaining artifact; cover banner stays disabled until it exists.
+## Update — 2026-09-08: research supplement (audited)
+
+The sections above record the 2026-09-04 audit snapshot, not the current site inventory. The mind map is now present and the cover already links to it; the earlier deferred/banner statements are historical.
+
+- Added `learning-evidence.html`: VI/EN, three reading modes, nine research references with claim-level citations, source quotations and limitations.
+- Linked from `mind-map.html`: topbar, Chapter 14 child node and Palace introduction. Existing 23 loci are unchanged.
+- `book-qa --kind synthesis learning-evidence.html`: PASS.
+- Whole-site `book-fidelity-auditor`: **FAIL**. The new supplement passed QA and the source spot-check, but the site gate remains blocked by inherited issues outside this task:
+  - `chapter-14-memory-for-study-and-exams.html` retains its template-title self-comparison failure;
+  - `mind-map.html` retains six baseline synthesis failures (reading-mode classes/key, external references/ref-N entries, and section-rail CSS/JS);
+  - inherited chapter/cover empty `href="#"` anchors and non-external Katz bibliography entries remain;
+  - the requested mind-map integration necessarily changes style, markup, data and script outside NAV fences.
+- The supplement is content-complete, but the whole site is not marked complete until the auditor returns PASS after those inherited blockers are resolved.
